@@ -1,0 +1,16 @@
+<form>
+  <div>
+    <label for="search-value"></label>
+    <input
+      type="text"
+      id="search-value"
+      name="value"
+      (input)="searchValue($event)"
+    >
+    <input
+      type="submit"
+      value="Pesquisar"
+      [disabled]="isDisabled"
+    />
+  </div>
+</form>
