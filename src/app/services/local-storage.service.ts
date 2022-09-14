@@ -15,7 +15,7 @@ export class LocalStorageService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
-  get(key:string): any {
+  get(key: string): any {
     return JSON.parse(this.storage.getItem(key)!)
   }
 

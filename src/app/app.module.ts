@@ -13,6 +13,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
 import { ProfileEditComponent } from './components/pages/profile-edit/profile-edit.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormLoginComponent } from './components/form-login/form-login.component
     ProfileEditComponent,
     NotFoundComponent,
     FormLoginComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
