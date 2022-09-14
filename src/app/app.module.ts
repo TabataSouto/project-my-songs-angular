@@ -14,6 +14,7 @@ import { ProfileEditComponent } from './components/pages/profile-edit/profile-ed
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
