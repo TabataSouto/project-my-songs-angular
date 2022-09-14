@@ -1,9 +1,10 @@
-<form>
+<form (ngSubmit)="submit()">
   <div>
     <label for="search-value"></label>
     <input
       type="text"
       id="search-value"
+      [(ngModel)]="value"
       name="value"
       (input)="searchValue($event)"
     >

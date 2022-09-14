@@ -19,13 +19,13 @@ export class SearchFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchValue(e: any): void {
-    const data = e.target.value;
-    this.isDisabled = data.length > 1 ? false : true;
-    this.value = data;
+  searchValue({ target: { value } }: any): void {
+    this.isDisabled = value.length > 1 ? false : true;
+    this.value = value;
   }
 
   submit() {
+    console.log(this.value)
     this.onSubmit.emit(this.value);
   }
 
