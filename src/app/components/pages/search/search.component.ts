@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ISearch } from 'src/app/interfaces/ISearch';
+import IAlbums from 'src/app/interfaces/IAlbums';
+
+import { IResponseAlbums } from 'src/app/interfaces/IResponseAlbums';
+
+import { AlbumService } from 'src/app/services/album/album.service';
 
 @Component({
   selector: 'app-search',
@@ -8,14 +12,22 @@ import { ISearch } from 'src/app/interfaces/ISearch';
 })
 
 export class SearchComponent implements OnInit {
+  albums: IAlbums[] = [];
+  isLoading: boolean = false;
 
-  constructor() { }
+  constructor(private albumSerive: AlbumService) { }
 
   ngOnInit(): void {
   }
 
-  getValueSearch(e: ISearch): void {
-    console.log(e.value)
+  getValueSearch(e: string): void {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.albumSerive.getAlbums(e).subscribe(
+        (album) => this.albums = album.results
+      )
+      this.isLoading = false;
+    }, 3000);
   }
 
 }

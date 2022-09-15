@@ -1,0 +1,16 @@
+<section *ngIf="albums.length > 0; else noResearch">
+  <div *ngIf="isLoading; else searchAlbums">
+    <p>Carregando...</p>
+  </div>
+  <ng-template #searchAlbums>
+    <div *ngFor="let album of albums">
+      <img src="{{ album.artworkUrl100 }}" alt="">
+      <p>{{ album.artistName }}</p>
+      <p>{{ album.collectionName }}</p>
+    </div>
+  </ng-template>
+</section>
+<ng-template #noResearch>
+  <h2 *ngIf="!isLoading; else teste">Pesquise pelo artista!</h2>
+  <ng-template #teste>Carregando...</ng-template>
+</ng-template>

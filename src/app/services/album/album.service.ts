@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IResponseAlbums } from 'src/app/interfaces/IResponseAlbums';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,9 @@ export class AlbumService {
 
   constructor(private http: HttpClient) { }
 
-  getAlbums(artist: string): Observable<any[]> {
+  getAlbums(artist: string): Observable<IResponseAlbums> {
     const albumsUrl = `${this.baseUrl}search?entity=album&term=${artist}&attribute=allArtistTerm`
-    return this.http.get<any>(albumsUrl);
+    return this.http.get<IResponseAlbums>(albumsUrl);
   }
 
 }

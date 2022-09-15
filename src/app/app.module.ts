@@ -19,6 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardAlbumComponent } from './components/card-album/card-album.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormLoginComponent,
     HeaderComponent,
     SearchFormComponent,
+    CardAlbumComponent,
   ],
   imports: [
     BrowserModule,
