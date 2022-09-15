@@ -25,7 +25,6 @@ export class SearchFormComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.value)
     this.onSubmit.emit(this.value);
   }
 

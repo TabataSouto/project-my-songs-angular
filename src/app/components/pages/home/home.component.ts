@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { ILogin } from 'src/app/interfaces/ILogin';
 
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-home',
