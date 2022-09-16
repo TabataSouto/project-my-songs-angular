@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import IAlbums from 'src/app/interfaces/IAlbums';
 
-import { IResponseAlbums } from 'src/app/interfaces/IResponseAlbums';
+import { IResponse } from 'src/app/interfaces/IResponse';
 
 import { AlbumService } from 'src/app/services/album/album.service';
 

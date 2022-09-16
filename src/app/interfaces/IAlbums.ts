@@ -1,5 +1,5 @@
 export default interface IAlbums {
-  artistId: string,
+  collectionId: string,
   artistName: string,
   collectionName: string,
   artworkUrl100: string

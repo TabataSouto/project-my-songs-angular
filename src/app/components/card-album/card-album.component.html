@@ -7,7 +7,7 @@
   <ng-template #searchAlbums>
     <p>Resultado de Álbuns do artista: {{ artist }}</p>
     <div *ngFor="let album of albums">
-        <a routerLink="/album/{{album.artistId}}">
+        <a routerLink="/album/{{album.collectionId}}">
         <img src="{{ album.artworkUrl100 }}" alt="">
         <p>{{ album.artistName }}</p>
         <p>{{ album.collectionName }}</p>
