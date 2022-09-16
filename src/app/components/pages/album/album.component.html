@@ -1,2 +1,19 @@
 <app-header></app-header>
-<p>album works!</p>
+
+<section *ngIf="isLoading; else album">
+  <h1>Carregando...</h1>
+</section>
+
+<ng-template #album>
+  <section>
+    <div>
+      <img src="{{ albumSongs[0].artworkUrl100 }}" alt="Imagem do album">
+      <h3>{{ albumSongs[0].collectionName }}</h3>
+      <p>{{ albumSongs[0].artistName }}</p>
+    </div>
+    <div *ngFor="let album of albumSongs">
+      <p>{{ album.trackName }}</p>
+      <audio src="{{ album.previewUrl }}" controls></audio>
+    </div>
+  </section>
+</ng-template>

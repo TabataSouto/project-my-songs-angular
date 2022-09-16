@@ -18,7 +18,7 @@ export class AlbumService {
     return this.http.get<IResponse>(albumsUrl);
   }
 
-  getSongsAlbum(id: string): Observable<IResponse> {
+  getSongsAlbum(id: number): Observable<IResponse> {
     const albumUrl = `${this.baseUrl}lookup?id=${id}&entity=song`
     return this.http.get<IResponse>(albumUrl);
   }
