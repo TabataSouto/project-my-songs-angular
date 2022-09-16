@@ -1,3 +1,8 @@
 <app-header></app-header>
 <app-search-form (onSubmit)="getValueSearch($event)"></app-search-form>
-<app-card-album [albums]="albums" [isLoading]="isLoading"></app-card-album>
+<app-card-album
+  [albums]="albums"
+  [artist]="artist"
+  [isLoading]="isLoading"
+  [albumsNotFount]="albumsNotFount"
+></app-card-album>

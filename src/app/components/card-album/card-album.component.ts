@@ -11,6 +11,8 @@ import IAlbums from 'src/app/interfaces/IAlbums';
 export class CardAlbumComponent implements OnInit {
   @Input() albums!: IAlbums[];
   @Input() isLoading!: boolean;
+  @Input() artist!: string;
+  @Input() albumsNotFount!: boolean;
   
   constructor() { }
 

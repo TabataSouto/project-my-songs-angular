@@ -14,6 +14,8 @@ import { AlbumService } from 'src/app/services/album/album.service';
 export class SearchComponent implements OnInit {
   albums: IAlbums[] = [];
   isLoading: boolean = false;
+  albumsNotFount: boolean = false;
+  artist: string = '';
 
   constructor(private albumSerive: AlbumService) { }
 
@@ -22,12 +24,19 @@ export class SearchComponent implements OnInit {
 
   getValueSearch(e: string): void {
     this.isLoading = true;
+    this.albumsNotFount = false;
+    this.artist = e;
     setTimeout(() => {
-      this.albumSerive.getAlbums(e).subscribe(
-        (album) => this.albums = album.results
-      )
+      this.albums = [];
+      this.albumSerive.getAlbums(e).subscribe((album) => { 
+        if (!album.results.length) {
+            this.isLoading = false;
+            this.albumsNotFount = true 
+        };
+          console.log(album.results);
+          this.albums = album.results });
       this.isLoading = false;
-    }, 3000);
+    }, 1000);
   }
 
 }
