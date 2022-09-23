@@ -1,3 +1,3 @@
-export interface IResponse {
-  results: []
+export interface IResponse<T> {
+  results: T
 }

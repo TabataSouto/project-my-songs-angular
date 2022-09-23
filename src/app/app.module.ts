@@ -19,7 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CardAlbumComponent } from './components/card-album/card-album.component';
+import { CardAlbumComponent } from './components/albums-card/card-album.component';
 import { SongCardComponent } from './components/song-card/song-card.component';
 
 @NgModule({

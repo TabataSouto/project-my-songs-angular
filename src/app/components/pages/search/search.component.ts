@@ -13,30 +13,32 @@ import { AlbumService } from 'src/app/services/album/album.service';
 
 export class SearchComponent implements OnInit {
   albums: IAlbums[] = [];
+  artist: string = '';
   isLoading: boolean = false;
   albumsNotFount: boolean = false;
-  artist: string = '';
 
   constructor(private albumSerive: AlbumService) { }
 
   ngOnInit(): void {
   }
 
-  getValueSearch(e: string): void {
+  async getValueSearch(e: string) {
     this.isLoading = true;
     this.albumsNotFount = false;
     this.artist = e;
-    setTimeout(() => {
-      this.albums = [];
-      this.albumSerive.getAlbums(e).subscribe((album) => { 
+    await this.albumSerive.getAlbums(e).subscribe(
+      (album) => {
         if (!album.results.length) {
-            this.isLoading = false;
-            this.albumsNotFount = true 
-        };
-          console.log(album.results);
-          this.albums = album.results });
-      this.isLoading = false;
-    }, 1000);
+          console.log("Album não foi encontrado!!!")
+          this.albumsNotFount = true;
+        } else {
+          console.log('Album encontrado!!!')
+          this.albums = album.results
+          this.albumsNotFount = false;
+          this.isLoading = false;
+        }
+      }
+    );
   }
 
 }

@@ -19,16 +19,16 @@ export class AlbumComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isLoading = true;
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    setTimeout(() => {
-      this.albumService.getSongsAlbum(id).subscribe(
-        (song) => {
-          this.albumSongs = song.results.slice(1);
-          this.isLoading = false;
-        }
-      );
-    }, 1000);
+    // this.isLoading = true;
+    // const id = Number(this.route.snapshot.paramMap.get('id'));
+    // setTimeout(() => {
+    //   this.albumService.getSongsAlbum(id).subscribe(
+    //     (song) => {
+    //       this.albumSongs = song.results.slice(1);
+    //       this.isLoading = false;
+    //     }
+    //   );
+    // }, 1000);
   }
 
 }
