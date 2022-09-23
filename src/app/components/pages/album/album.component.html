@@ -12,8 +12,7 @@
       <p>{{ albumSongs[0].artistName }}</p>
     </div>
     <div *ngFor="let album of albumSongs">
-      <p>{{ album.trackName }}</p>
-      <audio src="{{ album.previewUrl }}" controls></audio>
+      <app-song-card [album]="album"></app-song-card>
     </div>
   </section>
 </ng-template>

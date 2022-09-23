@@ -4,4 +4,5 @@ export interface ISong {
   artistName: string,
   trackName: string,
   previewUrl: string,
+  trackId: number,
 }

@@ -1,11 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-// import { FormControl, FormGroup } from '@angular/forms';
-
 
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.css']
+  styleUrls: ['./search-form.component.css'] 
 })
 
 export class SearchFormComponent implements OnInit {
@@ -19,9 +17,8 @@ export class SearchFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchValue({ target: { value } }: any): void {
-    this.isDisabled = value.length > 1 ? false : true;
-    this.value = value;
+  searchValue(): void {
+    this.isDisabled = this.value.length > 1 ? false : true;
   }
 
   submit() {
