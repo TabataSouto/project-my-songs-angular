@@ -4,6 +4,16 @@
       <p>My Songs</p>
     </div>
     <div>
+      <fa-icon
+      *ngIf="!imageProfile"
+      [icon]="faUserCircle"
+      size="4x"
+      ></fa-icon>
+      <img
+      *ngIf="imageProfile"
+        src="{{imageProfile}}"
+        alt="imagem do usuário"
+      />
       <p>{{ username }}</p>
     </div>
   </section>
