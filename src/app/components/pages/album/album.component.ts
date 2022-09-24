@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ISong } from 'src/app/interfaces/ISong';
 
 import { AlbumService } from 'src/app/services/album/album.service';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-album',
@@ -12,6 +13,7 @@ import { AlbumService } from 'src/app/services/album/album.service';
 export class AlbumComponent implements OnInit {
   albumSongs: ISong[] = [];
   isLoading: boolean = false;
+  faSpinner = faSpinner;
 
   constructor(
     private albumService: AlbumService,
@@ -19,16 +21,16 @@ export class AlbumComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.isLoading = true;
-    // const id = Number(this.route.snapshot.paramMap.get('id'));
-    // setTimeout(() => {
-    //   this.albumService.getSongsAlbum(id).subscribe(
-    //     (song) => {
-    //       this.albumSongs = song.results.slice(1);
-    //       this.isLoading = false;
-    //     }
-    //   );
-    // }, 1000);
+    this.isLoading = true;
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    setTimeout(() => {
+      this.albumService.getSongsAlbum(id).subscribe(
+        (song) => {
+          this.albumSongs = song.results.slice(1);
+          this.isLoading = false;
+        }
+      );
+    }, 1000);
   }
 
 }

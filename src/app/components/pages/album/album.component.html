@@ -1,18 +1,24 @@
 <app-header></app-header>
 
-<section *ngIf="isLoading; else album">
-  <h1>Carregando...</h1>
+<section>
+  <div  *ngIf="isLoading; else album">
+    <fa-icon
+      *ngIf="isLoading"
+      size="3x"
+      [icon]="faSpinner"
+      [spin]="true"
+    ></fa-icon>
+  </div>
+  <ng-template #album>
+    <section>
+      <div>
+        <img src="{{ albumSongs[0].artworkUrl100 }}" alt="Imagem do album">
+        <h3>{{ albumSongs[0].collectionName }}</h3>
+        <p>{{ albumSongs[0].artistName }}</p>
+      </div>
+      <div *ngFor="let album of albumSongs">
+        <app-song-card [album]="album"></app-song-card>
+      </div>
+    </section>
+  </ng-template>
 </section>
-
-<ng-template #album>
-  <section>
-    <div>
-      <img src="{{ albumSongs[0].artworkUrl100 }}" alt="Imagem do album">
-      <h3>{{ albumSongs[0].collectionName }}</h3>
-      <p>{{ albumSongs[0].artistName }}</p>
-    </div>
-    <div *ngFor="let album of albumSongs">
-      <app-song-card [album]="album"></app-song-card>
-    </div>
-  </section>
-</ng-template>
