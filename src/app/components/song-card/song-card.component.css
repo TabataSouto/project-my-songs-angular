@@ -1,0 +1,7 @@
+.favorite {
+  color: red;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
