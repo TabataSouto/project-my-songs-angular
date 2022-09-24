@@ -36,6 +36,7 @@ export class SongCardComponent implements OnInit {
   }
 
   favorite(song: ISong) {
+    location.reload()
     this.isChecked = !this.isChecked
     if (this.isChecked) {
       this.class = 'favorite';

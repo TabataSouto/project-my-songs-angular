@@ -1,2 +1,19 @@
 <app-header></app-header>
-<p>favorites works!</p>
+<section>
+  <fa-icon
+    *ngIf="isLoading"
+    size="3x"
+    [icon]="faSpinner"
+    [spin]="true"
+  ></fa-icon>
+  <div *ngIf="!favoriteSongs.length && !isLoading; else favorites">
+    Você não tem músicas nos favoritos!
+  </div>
+  <ng-template #favorites>
+    <section>
+      <div *ngFor="let song of favoriteSongs">
+        <app-song-card [song]="song"></app-song-card>
+      </div>
+    </section>
+  </ng-template>
+</section>
