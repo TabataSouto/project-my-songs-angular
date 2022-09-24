@@ -8,3 +8,12 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.favorite {
+  color: red;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
