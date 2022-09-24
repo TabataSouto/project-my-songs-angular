@@ -24,3 +24,7 @@ fa-icon {
 button {
   cursor: pointer;
 }
+
+.validation-error {
+  color: red;
+}

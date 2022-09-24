@@ -1,4 +1,64 @@
 <app-header></app-header>
-<section>
-  
+<section *ngIf="isLoading">
+  <fa-icon
+    size="3x"
+    [icon]="faSpinner"
+    [spin]="true"
+  ></fa-icon>
 </section>
+<Section *ngIf="!isLoading">
+  <form (ngSubmit)="submit()" [formGroup]="editForm" #formDir="ngForm">
+    <div>
+      <fa-icon
+        *ngIf="!user.image && !urlImageProfile"
+        [icon]="faUserCircle"
+        size="4x"
+      ></fa-icon>
+      <img [src]="urlImageProfile" height="200">
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <div>
+      <h3>Nome</h3>
+      <p>Fique à vontade para usar seu nome social</p>
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Digite o nome de usuário"
+        required
+      />
+      <div *ngIf="formDir.submitted && username.invalid" class="validation-error">
+        <p *ngIf="editForm.controls['username'].hasError('required')">O nome é obrigatório!</p>
+      </div>
+    </div>
+    <div>
+      <h3>E-mail</h3>
+      <p>Escolha um e-mail que consulte diariamente</p>
+      <input
+        type="text"
+        formControlName="email"
+        placeholder="Digite seu e-mail"
+        required
+      />
+      <div *ngIf="formDir.submitted && email.invalid" class="validation-error" class="validation-error">
+        <p *ngIf="editForm.controls['email'].hasError('required')">O email é obrigatório!</p>
+        <p *ngIf="editForm.controls['email'].hasError('email')">E-mail informado inválido!</p>
+      </div>
+    </div>
+    <div>
+      <h3>Descrição</h3>
+      <textarea
+        type="text"
+        formControlName="description"
+        placeholder="Sobre mim"
+        required
+      ></textarea>
+      <div *ngIf="formDir.submitted && description.invalid" class="validation-error">
+        <p *ngIf="editForm.controls['description'].hasError('required')">Breve descrição necessária!</p>
+      </div>
+    </div>
+    <button>Salvar</button>
+  </form>
+</Section>
