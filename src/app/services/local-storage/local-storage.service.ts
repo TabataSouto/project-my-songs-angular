@@ -22,12 +22,27 @@ export class LocalStorageService {
   
 
   saveFavoriteSong(newSong: ISong) {
+    const newSongSave = {
+      artworkUrl100: newSong.artworkUrl100,
+      trackName: newSong.trackName,
+      previewUrl: newSong.previewUrl,
+      trackId: newSong.trackId,
+    }
       const songs: ISong[] = this.get('favorites')
-      if (songs) {
-        this.set('favorites', [...songs, newSong])
+      if (!songs) {
+        this.set('favorites', [newSongSave])
       } else {
-        this.set('favorites', [newSong])
+        const getSongs = [...songs, newSongSave];
+        this.set('favorites', getSongs);
       }
+  }
+
+  removeFavoriteSong(id: Number) {
+    const songs: ISong[] = this.get('favorites');
+    if (songs) {
+      const updateFavorites = songs.filter((song) => song.trackId !== id);
+      this.set('favorites', updateFavorites);
+    }
   }
   
 }

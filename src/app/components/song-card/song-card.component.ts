@@ -14,19 +14,36 @@ import { LocalStorageService } from 'src/app/services/local-storage/local-storag
 export class SongCardComponent implements OnInit {
   @Input() song!: ISong;
 
-  classes: string[] = [];
-  getFavoritesSongs: ISong[] = [];
-
+  class: string = '';
   faHeart = faHeart;
+  isChecked: boolean = false;
 
   constructor(
     private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
+    const favoriteSongs:  ISong[] = this.localStorageService.get('favorites');
+    if (favoriteSongs) {
+      const song = favoriteSongs.map((s) => {
+        const isFavorite = s.trackId === this.song.trackId
+        if (isFavorite) {
+          this.class = 'favorite';
+          this.isChecked = true;
+        }
+      });
+    }
   }
 
-  favorite({ target: { checked } }: any, song: ISong) {
+  favorite(song: ISong) {
+    this.isChecked = !this.isChecked
+    if (this.isChecked) {
+      this.class = 'favorite';
+      this.localStorageService.saveFavoriteSong(song);
+    } else {
+      this.class = '';
+      this.localStorageService.removeFavoriteSong(song.trackId);
+    }
   }
 
 }
