@@ -17,7 +17,7 @@
         <p>{{ albumSongs[0].artistName }}</p>
       </div>
       <div *ngFor="let album of albumSongs">
-        <app-song-card [album]="album"></app-song-card>
+        <app-song-card [song]="album"></app-song-card>
       </div>
     </section>
   </ng-template>

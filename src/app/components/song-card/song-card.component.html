@@ -1,10 +1,11 @@
-<p>{{ album.trackName }}</p>
-<audio src="{{ album.previewUrl }}" controls></audio>
+<p>{{ song.trackName }}</p>
+<audio src="{{ song.previewUrl }}" controls></audio>
 
-<label for="{{album.trackId}}">
+<label for="{{song.trackId}}">
   <fa-icon [ngClass]="classes" [icon]="faHeart"></fa-icon>
 </label>
   <input
   type="checkbox"
-  id="{{album.trackId}}"
+  id="{{song.trackId}}"
+  (change)="favorite($event, song)"
 />
