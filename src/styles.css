@@ -11,9 +11,12 @@ a {
 
 .favorite {
   color: red;
-  cursor: pointer;
 }
 
 input[type="checkbox"] {
   display: none;
+}
+
+fa-icon {
+  cursor: pointer;
 }
