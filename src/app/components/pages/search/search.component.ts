@@ -22,23 +22,25 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async getValueSearch(e: string) {
+  getValueSearch(e: string) {
     this.isLoading = true;
     this.albumsNotFount = false;
     this.artist = e;
-    await this.albumSerive.getAlbums(e).subscribe(
-      (album) => {
-        if (!album.results.length) {
-          console.log("Album não foi encontrado!!!")
-          this.albumsNotFount = true;
-        } else {
-          console.log('Album encontrado!!!')
-          this.albums = album.results
-          this.albumsNotFount = false;
-          this.isLoading = false;
+    setTimeout(async () => {
+      await this.albumSerive.getAlbums(e).subscribe(
+        (album) => {
+          if (!album.results.length) {
+            this.albumsNotFount = true;
+            this.albums = [];
+            this.isLoading = false;
+          } else {
+            this.albums = album.results
+            this.albumsNotFount = false;
+            this.isLoading = false;
+          }
         }
-      }
-    );
+      );
+    }, 1000);
   }
 
 }

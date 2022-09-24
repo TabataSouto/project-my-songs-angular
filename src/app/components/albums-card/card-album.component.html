@@ -1,0 +1,21 @@
+<section>
+  <fa-icon
+    *ngIf="isLoading"
+    size="3x"
+    [icon]="faSpinner"
+    [spin]="true"
+  ></fa-icon>
+  <div  *ngIf="!albums.length && !albumsNotFount && !isLoading; else searchResult">
+    <h1>Faça a sua pesquisa!</h1>
+  </div>
+  <ng-template #searchResult>
+    <div *ngIf="albums.length && !albumsNotFount && !isLoading; else notFound">
+      Seu album foi encontrado!
+    </div>
+    <ng-template #notFound>
+      <div *ngIf="!albums.length && albumsNotFount && !isLoading">
+        <h1>Album não encontrado! Por favor, tente novamente.</h1>
+      </div>
+    </ng-template>
+  </ng-template>
+</section>
