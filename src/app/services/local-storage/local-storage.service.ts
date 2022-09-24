@@ -20,9 +20,6 @@ export class LocalStorageService {
     return JSON.parse(this.storage.getItem(key)!)
   }
   
-  // remove (key: string): any {
-  //   this.storage.removeItem(key);
-  // }
 
   saveFavoriteSong(newSong: ISong) {
       const songs: ISong[] = this.get('favorites')
@@ -32,11 +29,5 @@ export class LocalStorageService {
         this.set('favorites', [newSong])
       }
   }
-
-  removeFavoriteSong(song: ISong) {
-    const songs: ISong[] = this.get('favorites')
-    if (songs) {
-      this.set('favorites', songs.filter(s => s.trackId !== song.trackId));
-    }
-  }
+  
 }

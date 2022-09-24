@@ -9,9 +9,16 @@
     <h1>Faça a sua pesquisa!</h1>
   </div>
   <ng-template #searchResult>
-    <div *ngIf="albums.length && !albumsNotFount && !isLoading; else notFound">
-      Seu album foi encontrado!
-    </div>
+    <section *ngIf="albums.length && !albumsNotFount && !isLoading; else notFound">
+      <p>Resultado de álbuns do(a) Artista: {{artist}}</p>
+      <div *ngFor="let album of albums">
+        <a routerLink="/album/{{album.collectionId}}">
+          <img src="{{album.artworkUrl100}}" alt="">
+          <h3>{{album.collectionName}}</h3>
+          <p>{{album.artistName}}</p>
+        </a>
+      </div>
+    </section>
     <ng-template #notFound>
       <div *ngIf="!albums.length && albumsNotFount && !isLoading">
         <h1>Album não encontrado! Por favor, tente novamente.</h1>

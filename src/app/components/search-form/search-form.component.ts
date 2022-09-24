@@ -23,6 +23,7 @@ export class SearchFormComponent implements OnInit {
 
   submit() {
     this.onSubmit.emit(this.value);
+    this.value = '';
   }
 
 }

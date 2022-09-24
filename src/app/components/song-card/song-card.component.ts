@@ -32,15 +32,15 @@ export class SongCardComponent implements OnInit {
     }
   }
 
-  favorite({ target: { checked } }: any, song: ISong) {
-    console.log(checked)
-    if (checked) {
-      this.classes.push('favorite');
-      this.localStorageService.saveFavoriteSong(song);
-    } else {
-      this.classes = [];
-      this.localStorageService.removeFavoriteSong(song);
-    }
-  }
+  // favorite({ target: { checked } }: any, song: ISong) {
+  //   console.log(checked)
+  //   if (checked) {
+  //     this.classes.push('favorite');
+  //     this.localStorageService.saveFavoriteSong(song);
+  //   } else {
+  //     this.classes = [];
+  //     this.localStorageService.removeFavoriteSong(song);
+  //   }
+  // }
 
 }
