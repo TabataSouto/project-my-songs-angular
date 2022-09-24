@@ -12,6 +12,7 @@
   <ng-template #favorites>
     <section>
       <div *ngFor="let song of favoriteSongs">
+        <img src="{{song.artworkUrl100}}" alt="">
         <app-song-card [song]="song"></app-song-card>
       </div>
     </section>
