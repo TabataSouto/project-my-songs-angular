@@ -1,2 +1,32 @@
 <app-header></app-header>
-<p>profile works!</p>
+<section>
+  <div>
+    <fa-icon
+      *ngIf="!user.image"
+      [icon]="faUserCircle"
+      size="4x"
+    ></fa-icon>
+    <img
+    *ngIf="user.image"
+      src="{{user.image}}"
+      alt="imagem do usuário"
+    />
+    <button routerLink="/profile/edit">Editar Perfil</button>
+  </div>
+  <div>
+    <div>
+      <h3>Nome</h3>
+      {{user.username}}
+    </div>
+    <div>
+      <h3>E-mail</h3>
+      <p *ngIf="!user.email">Cadastre seu e-mail.</p>
+      <p *ngIf="user.email">{{user.email}}</p>
+    </div>
+    <div>
+      <h3>Descrição</h3>
+      <p *ngIf="!user.description">Faça uma breve descrição sobre você!</p>
+      <p *ngIf="user.description">{{user.description}}</p>
+    </div>
+  </div>
+</section>
