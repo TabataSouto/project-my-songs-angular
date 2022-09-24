@@ -1,5 +1,12 @@
 <app-header></app-header>
-<section>
+<section *ngIf="isLoading">
+  <fa-icon
+    size="3x"
+    [icon]="faSpinner"
+    [spin]="true"
+  ></fa-icon>
+</section>
+<section *ngIf="!isLoading">
   <div>
     <fa-icon
       *ngIf="!user.image"
