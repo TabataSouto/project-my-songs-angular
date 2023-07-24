@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  background: #3f3d56;
+  height: 14vh;
+}
+
+.menu {
+  flex-basis: 28%;
+  & nav {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+  }
+}
+
+.divider {
+  height: 30px;
+  width: 2px;
+  background: #ffffff;
+}
+
+.user div {
+  color: #ffffff;
+  align-items: center;
+  display: flex;
+  flex-basis: 30%;
+  gap: 12px;
+  & svg {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.active {
+  color: #FF6584;
+}
+
+.normal {
+  color: #ffffff;
+}

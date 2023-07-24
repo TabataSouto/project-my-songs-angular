@@ -47,6 +47,7 @@ input {
       font-weight: bold;
       border: none;
       margin-top: 1.75rem;
+      cursor: pointer;
     }
   }
 }

@@ -1,27 +1,34 @@
-<header>
-  <section>
+<header class="container">
+  <section class="menu">
+    <nav>
+      <a
+        routerLink="/search"
+        [ngClass]="path == '/search' ? 'active' : 'normal'"
+        >Pesquisa</a
+      >
+      <div class="divider"></div>
+      <a
+        routerLink="/favorites"
+        [ngClass]="path == '/favorites' ? 'active' : 'normal'"
+        >Favoritas</a
+      >
+      <div class="divider"></div>
+      <a
+        routerLink="/profile"
+        [ngClass]="path == '/profile' ? 'active' : 'normal'"
+        >Perfil</a
+      >
+    </nav>
+  </section>
+  <section class="user">
     <div>
-      <p>My Songs</p>
-    </div>
-    <div>
-      <fa-icon
-      *ngIf="!imageProfile"
-      [icon]="faUserCircle"
-      size="4x"
-      ></fa-icon>
+      <fa-icon *ngIf="!imageProfile" [icon]="faUserCircle" size="4x"></fa-icon>
       <img
-      *ngIf="imageProfile"
-        src="{{imageProfile}}"
+        *ngIf="imageProfile"
+        src="{{ imageProfile }}"
         alt="imagem do usuário"
       />
       <p>{{ username }}</p>
     </div>
-  </section>
-  <section>
-    <nav>
-      <a routerLink="/search">Pesquisa</a>
-      <a routerLink="/favorites">Favoritas</a>
-      <a routerLink="/profile">Perfil</a>
-    </nav>
   </section>
 </header>
