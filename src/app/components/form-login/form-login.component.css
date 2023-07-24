@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
+
+input {
+  padding: 1rem;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.login-container {
+  color: #ffffff;
+  display: flex;
+  height: 100vh;
+}
+
+.form-container {
+  flex-basis: 45%;
+  background: #3f3d56;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  & h1 {
+    font-weight: bold;
+    font-size: 3.125rem;
+  }
+  & form {
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-size: 1.125rem;
+    & label {
+      font-weight: 100;
+    }
+    & input {
+      color: #ffffff;
+      outline: none;
+      border-radius: 10px;
+      background: transparent;
+      border: 2px solid rgb(255 255 255 / 0.4);
+      &::placeholder {
+        color: rgb(255 255 255 / 0.4);
+      }
+    }
+    & input[type=submit] {
+      background: #FF6584;
+      font-weight: bold;
+      border: none;
+      margin-top: 1.75rem;
+    }
+  }
+}
+
+.image-container {
+  display: flex;
+  background: #edf2f4;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 70%;
+  & img {
+    height: 85%;
+    /* remove a cord branca de fundo da imagem */
+    mix-blend-mode: multiply;
+  }
+}

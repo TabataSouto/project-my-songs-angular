@@ -3,5 +3,4 @@ export interface ILogin {
   email?: string,
   description?: string,
   image?: string,
-  password: string,
 }
